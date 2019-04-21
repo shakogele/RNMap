@@ -49,8 +49,13 @@ const styles = StyleSheet.create({
     fontSize: scale(18),
     textAlign: 'center'
   },
+  autoCompletesContainer: {
+    backgroundColor: "green",
+    height: "100%"
+  },
   singleAutoCompleteContainer: {
-    paddingVertical: scale(5)
+    paddingVertical: scale(5),
+    zIndex: 1
   }
 })
 

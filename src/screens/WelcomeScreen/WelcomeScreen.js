@@ -100,7 +100,6 @@ class WelcomeScreen extends Component {
         <Text style={ styles.buttonText }>Show On Map</Text>
       </View>
     );
-
     return (
       <View style={ styles.container }>
         <View style={ styles.headerContainer }>
@@ -124,7 +123,8 @@ class WelcomeScreen extends Component {
           </View>
 
           <ScrollView
-            contentContainerStyle={this.state.content}
+            contentContainerStyle={{ flex: 1, justifyContent: "flex-start", alignItems: 'flex-start' }}
+            keyboardShouldPersistTaps='always'
             style={styles.autoCompletesContainer}>
             {autoCompletes}
           </ScrollView>

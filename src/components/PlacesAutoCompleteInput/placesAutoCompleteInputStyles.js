@@ -24,13 +24,16 @@ const styles = StyleSheet.create({
     height: scale(150),
     backgroundColor: "white",
     position: "absolute",
-    zIndex: 9999
+    zIndex: 100
   },
   singlePlaceInnerView: {
+    backgroundColor: "red",
     paddingHorizontal: scale(20),
     paddingVertical: scale(10),
     borderBottomWidth: 1,
-    borderColor: "#ccc"
+    borderColor: "#ccc",
+    zIndex: 999,
+    overflow: "visible"
   },
   singlePlaceInnerText: {
 

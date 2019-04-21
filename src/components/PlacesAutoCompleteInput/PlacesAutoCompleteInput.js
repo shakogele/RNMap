@@ -104,7 +104,7 @@ class PlacesAutoCompleteInput extends Component {
     )
 
     return (
-      <View>
+      <View styles={{ flex: 1 }}>
         <View style={styles.inputView}>
           <DefaultInputWithIcon
             placeholder="Search Place"
@@ -120,9 +120,7 @@ class PlacesAutoCompleteInput extends Component {
             keyboardType="phone-pad"
           />
         </View>
-        <View>
           { this.state.places && this.state.places.length ? placesScrollView : null }
-        </View>
       </View>
     );
 
