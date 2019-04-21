@@ -120,7 +120,9 @@ class PlacesAutoCompleteInput extends Component {
             keyboardType="phone-pad"
           />
         </View>
+        <View>
           { this.state.places && this.state.places.length ? placesScrollView : null }
+        </View>
       </View>
     );
 
