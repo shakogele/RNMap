@@ -9,6 +9,23 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     alignItems: 'center',
   },
+  headerContainer: {
+    position: "absolute",
+    width: "100%",
+    top: 0,
+    height: scale(100),
+    backgroundColor: "teal",
+    flexDirection: "row",
+    zIndex: 9999,
+    paddingHorizontal: scale(20),
+    alignItems: 'center'
+  },
+  headerText: {
+    width: "90%",
+    fontSize: scale(20),
+    textAlign: "center",
+    color: 'white'
+  },
   map: {
     ...StyleSheet.absoluteFillObject,
   },
@@ -22,6 +39,7 @@ const styles = StyleSheet.create({
   },
   goBackButton: {
     height: "100%",
+    width: "10%",
     paddingHorizontal: scale(15),
     justifyContent: 'center',
     alignItems: 'center'

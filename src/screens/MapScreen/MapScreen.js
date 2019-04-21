@@ -52,9 +52,9 @@ class MapScreen extends Component {
           icon="arrowLeft"
           width={20}
           height={20}
-          color="#f8a11b"
-          strokeColor="#f8a11b"
-          fillColor="#f8a11b"
+          color="#fff"
+          strokeColor="#fff"
+          fillColor="#fff"
           strokeWidth={0.5} />
       </View>
     );
@@ -94,16 +94,9 @@ class MapScreen extends Component {
           ))
         }
         </MapView>
-        <View style={{
-            position: "absolute",
-            width: "100%",
-            top: 0,
-            height: 100,
-            backgroundColor: "teal",
-            flexDirection: "row",
-            zIndex: 9999,
-            paddingHorizontal:20 }}>
+        <View style={styles.headerContainer}>
           {goBackButton}
+          <Text style={ styles.headerText }>Map Screen</Text>
         </View>
       </View>
     )

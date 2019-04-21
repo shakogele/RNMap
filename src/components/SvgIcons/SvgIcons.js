@@ -79,6 +79,24 @@ const SvgIcons = ({icon, width, height, styles, strokeColor, fillColor, strokeWi
     </Svg>
   );
 
+  icons['clear'] = (
+   <Svg
+     viewBox="0 0 11.93 11.93"
+     height={height}
+     width={width}
+     style={styles}>
+     <G id="Layer_2" data-name="Layer 2">
+       <G id="Layer_1" data-name="Layer 1">
+         <Path
+           stroke = {strokeColor}
+           fill = {fillColor}
+           strokeWidth = {strokeWidth}
+           d="M10.15,11.62,6,7.44,1.78,11.62A1,1,0,0,1,.31,10.15L4.49,6,.31,1.78A1,1,0,0,1,1.78.31L6,4.49,10.15.31a1,1,0,1,1,1.48,1.48L7.44,6l4.18,4.18a1,1,0,1,1-1.48,1.48Z"/>
+       </G>
+     </G>
+   </Svg>
+ );
+
   return icons[icon];
 
 }

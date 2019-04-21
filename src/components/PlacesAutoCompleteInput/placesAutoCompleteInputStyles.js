@@ -2,6 +2,7 @@ import { StyleSheet } from 'react-native';
 import { scale, moderateScale, verticalScale} from '../../utility/scaling';
 
 const styles = StyleSheet.create({
+  placesAutoCompleteInputStyles: { flex: 1 },
   inputContainerStyle: {
     height: scale(45),
     padding: 0,
@@ -27,7 +28,6 @@ const styles = StyleSheet.create({
     zIndex: 100
   },
   singlePlaceInnerView: {
-    backgroundColor: "red",
     paddingHorizontal: scale(20),
     paddingVertical: scale(10),
     borderBottomWidth: 1,

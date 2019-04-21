@@ -104,7 +104,7 @@ class PlacesAutoCompleteInput extends Component {
     )
 
     return (
-      <View styles={{ flex: 1 }}>
+      <View styles={styles.placesAutocompleteInputContainer}>
         <View style={styles.inputView}>
           <DefaultInputWithIcon
             placeholder="Search Place"

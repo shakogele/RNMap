@@ -6,12 +6,12 @@ const styles = StyleSheet.create({
     flex: 1
   },
   headerText: {
-    fontSize: 20,
+    fontSize: scale(20),
     textAlign: "center",
     color: 'white'
   },
   headerContainer: {
-    flex: 1,
+    height: scale(100),
     backgroundColor: "teal",
     justifyContent: "center"
   },
@@ -37,6 +37,18 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: "10%"
   },
+  scrollViewContent: {
+    flex: 1,
+    justifyContent: "flex-start",
+    alignItems: 'flex-start'
+  },
+  closeButtonContainer: {
+    backgroundColor: "teal",
+    padding: scale(10),
+    justifyContent: "center",
+    alignItems: "center",
+    width: scale(50)
+  },
   buttonContainer: {
     paddingVertical: scale(20),
     justifyContent: "center",
@@ -50,12 +62,19 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   autoCompletesContainer: {
-    backgroundColor: "green",
     height: "100%"
   },
   singleAutoCompleteContainer: {
     paddingVertical: scale(5),
-    zIndex: 1
+    paddingHorizontal: scale(10),
+    zIndex: 1,
+    flexDirection: "row"
+  },
+  inputPortionLeft: {
+    flex: 8
+  },
+  inputPortionRight: {
+    flex: 2
   }
 })
 

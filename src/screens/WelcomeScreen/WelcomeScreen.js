@@ -6,6 +6,7 @@ import { welcomeScreenOptions } from './welcomeScreenOptions';
 import styles from './welcomeScreenStyles';
 import PlacesAutoCompleteInput from '../../components/PlacesAutoCompleteInput/PlacesAutoCompleteInput';
 import ClickableElement from '../../components/ClickableElement/ClickableElement';
+import SvgIcons from '../../components/SvgIcons/SvgIcons';
 
 class WelcomeScreen extends Component {
 
@@ -54,7 +55,6 @@ class WelcomeScreen extends Component {
   };
 
   onChoosePlace(place, index){
-    console.log("place, index", place, index);
     const choosenPlaces = [...this.state.places];
     choosenPlaces[index].latitude = place.geometry.location.lat;
     choosenPlaces[index].longitude = place.geometry.location.lng;
@@ -67,6 +67,17 @@ class WelcomeScreen extends Component {
       }
     })
   };
+
+  removePlace(index){
+    const places = [...this.state.places];
+    places.splice(index, 1);
+    this.setState(prevState => {
+      return {
+        ...prevState,
+        places
+      }
+    })
+  }
 
   setContent(content){
     console.log(content);
@@ -82,10 +93,29 @@ class WelcomeScreen extends Component {
         <View
             key={index}
             style={[styles.singleAutoCompleteContainer, {zIndex: (this.state.places.length - index)}]}>
-              <PlacesAutoCompleteInput
-                setContent={(content) => this.setContent(content)}
-                onChoosePlace={place => this.onChoosePlace(place, index)}
-              />
+              <View style={ styles.inputPortionLeft }>
+                  <PlacesAutoCompleteInput
+                    setContent={(content) => this.setContent(content)}
+                    onChoosePlace={place => this.onChoosePlace(place, index)}
+                  />
+              </View>
+              <View style={ styles.inputPortionRight }>
+                <ClickableElement
+                  inner={
+                    <View style={ styles.closeButtonContainer }>
+                      <SvgIcons
+                        icon="clear"
+                        width={20}
+                        height={20}
+                        color="#fff"
+                        strokeColor="#fff"
+                        fillColor="#fff"
+                        strokeWidth={0.5} />
+                    </View>
+                  }
+                  onPress={() => this.removePlace(index)}
+                />
+              </View>
         </View>
       )
     });
@@ -103,7 +133,7 @@ class WelcomeScreen extends Component {
     return (
       <View style={ styles.container }>
         <View style={ styles.headerContainer }>
-          <Text style={ styles.headerText }>Welcome</Text>
+          <Text style={ styles.headerText }>Welcome Screen</Text>
         </View>
         <View style={ styles.bodyContainer } >
 
@@ -123,7 +153,7 @@ class WelcomeScreen extends Component {
           </View>
 
           <ScrollView
-            contentContainerStyle={{ flex: 1, justifyContent: "flex-start", alignItems: 'flex-start' }}
+            contentContainerStyle={styles.scrollViewContent}
             keyboardShouldPersistTaps='always'
             style={styles.autoCompletesContainer}>
             {autoCompletes}
