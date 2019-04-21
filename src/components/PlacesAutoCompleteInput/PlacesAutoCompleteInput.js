@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { View, Text, ScrollView, Platform } from 'react-native';
 import styles from './placesAutoCompleteInputStyles';
 import DefaultInputWithIcon from '../DefaultInputWithIcon/DefaultInputWithIcon';
 import googleKey from '../../utility/googleKey';
@@ -98,7 +98,7 @@ class PlacesAutoCompleteInput extends Component {
         onTouchStart={(ev) => this.props.setContent({ flex: 1 }) }
 				onMomentumScrollEnd={(e) => this.props.setContent({}) }
 				onScrollEndDrag={(e) => this.props.setContent({}) }
-        style={styles.autocompleteScrollView}>
+        style={[styles.autocompleteScrollView, (Platform.OS === "IOS") ? styles.autocompleteScrollViewIOS : null]}>
         {listOfPlaces}
       </ScrollView>
     )

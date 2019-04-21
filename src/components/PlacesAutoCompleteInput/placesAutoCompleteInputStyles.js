@@ -1,8 +1,8 @@
 import { StyleSheet } from 'react-native';
-import { scale, moderateScale, verticalScale} from '../../utility/scaling';
+import { scale, moderateScale, verticalScale } from '../../utility/scaling';
 
 const styles = StyleSheet.create({
-  placesAutoCompleteInputStyles: { flex: 1 },
+  placesAutocompleteInputContainer: { flex: 1 },
   inputContainerStyle: {
     height: scale(45),
     padding: 0,
@@ -21,19 +21,18 @@ const styles = StyleSheet.create({
   autocompleteScrollView: {
     width: "80%",
     marginHorizontal: "10%",
-    marginTop: scale(44),
     height: scale(150),
     backgroundColor: "white",
+  },
+  autocompleteScrollViewIOS: {
     position: "absolute",
-    zIndex: 100
+    marginTop: scale(44)
   },
   singlePlaceInnerView: {
     paddingHorizontal: scale(20),
     paddingVertical: scale(10),
     borderBottomWidth: 1,
     borderColor: "#ccc",
-    zIndex: 999,
-    overflow: "visible"
   },
   singlePlaceInnerText: {
 
