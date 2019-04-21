@@ -92,7 +92,7 @@ class WelcomeScreen extends Component {
       return (
         <View
             key={index}
-            style={styles.singleAutoCompleteContainer}>
+            style={[styles.singleAutoCompleteContainer, {zIndex: (this.state.places.length - index)}]}>
               <View style={ styles.inputPortionLeft }>
                   <PlacesAutoCompleteInput
                     setContent={(content) => this.setContent(content)}

@@ -98,7 +98,7 @@ class PlacesAutoCompleteInput extends Component {
         onTouchStart={(ev) => this.props.setContent({ flex: 1 }) }
 				onMomentumScrollEnd={(e) => this.props.setContent({}) }
 				onScrollEndDrag={(e) => this.props.setContent({}) }
-        style={[styles.autocompleteScrollView, (Platform.OS === "IOS") ? styles.autocompleteScrollViewIOS : null]}>
+        style={[styles.autocompleteScrollView, (Platform.OS === "ios") ? styles.autocompleteScrollViewIOS : null]}>
         {listOfPlaces}
       </ScrollView>
     )
