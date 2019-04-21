@@ -57,7 +57,7 @@ class PlacesAutoCompleteInput extends Component {
           }
         })
       });
-    }
+    };
 
     this.setState(prevState => {
       return {

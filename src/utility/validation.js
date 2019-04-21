@@ -38,7 +38,6 @@ export const validateGoogleResponse = responseStatus => {
 };
 
 const minLengthValidator = (val, minLength) => {
-  console.log(val);
   return val.length >= minLength;
 };
 
