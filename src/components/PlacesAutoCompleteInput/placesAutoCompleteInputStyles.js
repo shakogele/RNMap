@@ -20,10 +20,11 @@ const styles = StyleSheet.create({
   autocompleteScrollView: {
     width: "80%",
     marginHorizontal: "10%",
+    marginTop: scale(44),
     height: scale(150),
     backgroundColor: "white",
     position: "absolute",
-    zIndex: 999
+    zIndex: 9999
   },
   singlePlaceInnerView: {
     paddingHorizontal: scale(20),

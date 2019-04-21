@@ -18,10 +18,16 @@ const styles = StyleSheet.create({
   bodyContainer: {
     flex: 5,
   },
+  footerText: {
+    textAlign: "center",
+    fontSize: scale(15),
+    color: "white"
+  },
   footerContainer: {
     flex: 1,
     backgroundColor: "teal",
-    justifyContent: "center"
+    justifyContent: "center",
+    paddingVertical: scale(20)
   },
   buttonsContainer: {
     flexDirection: "row",

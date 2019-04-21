@@ -76,7 +76,7 @@ class PlacesAutoCompleteInput extends Component {
 
   render(){
 
-    const listOfPlaces = this.state.places.map((place, index) => {
+    const listOfPlaces = this.state.places && this.state.places.map((place, index) => {
       let singlePlaceInner = (
         <View style={styles.singlePlaceInnerView}>
           <Text style={styles.singlePlaceInnerText}>{place.description}</Text>
@@ -92,7 +92,13 @@ class PlacesAutoCompleteInput extends Component {
     });
 
     const placesScrollView = (
-      <ScrollView keyboardShouldPersistTaps="always" style={styles.autocompleteScrollView}>
+      <ScrollView
+        keyboardShouldPersistTaps="always"
+        nestedScrollEnabled={true}
+        onTouchStart={(ev) => this.props.setContent({ flex: 1 }) }
+				onMomentumScrollEnd={(e) => this.props.setContent({}) }
+				onScrollEndDrag={(e) => this.props.setContent({}) }
+        style={styles.autocompleteScrollView}>
         {listOfPlaces}
       </ScrollView>
     )
@@ -114,9 +120,7 @@ class PlacesAutoCompleteInput extends Component {
             keyboardType="phone-pad"
           />
         </View>
-        <View>
-          { this.state.places.length ? placesScrollView : null }
-        </View>
+          { this.state.places && this.state.places.length ? placesScrollView : null }
       </View>
     );
 

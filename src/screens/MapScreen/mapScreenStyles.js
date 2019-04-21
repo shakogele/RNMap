@@ -13,10 +13,25 @@ const styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
   },
   markerInfoWindow: {
-    position: "absolute", 
-    width: scale(300), 
-    height: scale(100), 
+    position: "absolute",
+    width: scale(300),
+    height: scale(100),
     zIndex: 999 },
+  markerContainer: {
+    padding: scale(20),
+  },
+  goBackButton: {
+    height: "100%",
+    paddingHorizontal: scale(15),
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  markerCallout: {
+    position: "absolute",
+    width: scale(300),
+    height: scale(100),
+    zIndex: 999
+  }
 })
 
 export default styles;

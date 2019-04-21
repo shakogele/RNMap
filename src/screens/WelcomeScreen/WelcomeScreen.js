@@ -12,7 +12,8 @@ class WelcomeScreen extends Component {
   constructor(props){
     super(props),
     this.state = {
-      places: []
+      places: [],
+      content: {}
     }
   };
 
@@ -28,6 +29,8 @@ class WelcomeScreen extends Component {
       longitude: null,
       latitudeDelta: 0.0122,
       longitudeDelta: (Dimensions.get('window').width / Dimensions.get('window').height) * 0.0122,
+      title: null,
+      description: null
     });
 
     this.setState(prevState => {
@@ -39,12 +42,13 @@ class WelcomeScreen extends Component {
   };
 
   showOnMap(){
+    const places = this.state.places.filter(place => {
+      return place.latitude && place.longitude && place.title && place.description;
+    });
     Navigation.push(this.props.componentId, {
       component: {
         name: 'markersOnMap.MapScreen',
-        passProps: {
-          places: this.state.places
-        },
+        passProps: { places },
       }
     });
   };
@@ -54,11 +58,20 @@ class WelcomeScreen extends Component {
     const choosenPlaces = [...this.state.places];
     choosenPlaces[index].latitude = place.geometry.location.lat;
     choosenPlaces[index].longitude = place.geometry.location.lng;
+    choosenPlaces[index].title = place.name;
+    choosenPlaces[index].description = place.formatted_address;
     this.setState(prevState => {
       return {
         ...prevState,
         places: choosenPlaces
       }
+    })
+  };
+
+  setContent(content){
+    console.log(content);
+    this.setState({
+      content
     })
   };
 
@@ -68,8 +81,9 @@ class WelcomeScreen extends Component {
       return (
         <View
             key={index}
-            style={styles.singleAutoCompleteContainer}>
+            style={[styles.singleAutoCompleteContainer, {zIndex: (this.state.places.length - index)}]}>
               <PlacesAutoCompleteInput
+                setContent={(content) => this.setContent(content)}
                 onChoosePlace={place => this.onChoosePlace(place, index)}
               />
         </View>
@@ -109,12 +123,14 @@ class WelcomeScreen extends Component {
             </View>
           </View>
 
-          <View style={styles.autoCompletesContainer}>
+          <ScrollView
+            contentContainerStyle={this.state.content}
+            style={styles.autoCompletesContainer}>
             {autoCompletes}
-          </View>
-
+          </ScrollView>
         </View>
         <View style={ styles.footerContainer } >
+          <Text style={ styles.footerText }>Created by Shalva Gelenidze</Text>
         </View>
       </View>
     )
